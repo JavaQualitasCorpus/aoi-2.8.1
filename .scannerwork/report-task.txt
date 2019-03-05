@@ -1,0 +1,6 @@
+projectKey=QC:QC_aoi-2.8.1
+serverUrl=https://sonar.rd.tut.fi/sonar75
+serverVersion=7.5.0.20543
+dashboardUrl=https://sonar.rd.tut.fi/sonar75/dashboard?id=QC%3AQC_aoi-2.8.1
+ceTaskId=AWlMwedmnbimOWNEd99h
+ceTaskUrl=https://sonar.rd.tut.fi/sonar75/api/ce/task?id=AWlMwedmnbimOWNEd99h
