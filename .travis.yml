@@ -1,0 +1,18 @@
+env:
+  global:
+   # The next declaration is the encrypted COVERITY_SCAN_TOKEN, created
+   #   via the "travis encrypt" command using the project repo's public key
+   - secure: "uduLaWutJ+EdFGmgomFtHjLGv2vACJFlMlTbysZNOUj71WOZg6GRMhkLtrgygpgXhdvaFxBOgcdrW3z0wa1y8S1qvPWidBB7IgHACzgh0AdUwfwTyTO4PJxorsXA2kDpLvNKeB5zh5k/qPw81A/OUTfPtWfLKc1wa6s6SMyn2f4Cu/aVi6VCrRA47EJCBgbgPkl9xW/Kgi1lUGRojLxhn4XiXu83HM6oVzRS0Nts5Rm+6dWnbEIgxiDBMU6WR031S6brYuP6WhL0/0/FD8K10NmiAC2Y3l6j2Gvfh0hGGnxR4qNrAHmAfOqeikbPgmveQm1rBP6A/DGCTrQM3tyFwyBV1wVdW21jfLjgRaiTlANTejmZ3JliwTPs94I+YJjUDaomDTCRteTIvfEi96N/BwgErAFEextG7/hPnBstA+8qGCK1YbUVo5XMOWk3VTnUooF5gJobP76jX2Ogp2rig/wMYAlkqginySydWJytCJmu4rq7eYPOjlZkdN98CuInk/o9dh+tT3iS1tyuZmxP2WcFYDc82UQhNwGal0ewx0eV2lXdoGjwZMMaGPcSLYnlJSiXSjACRD1UF26Zn/Qbd9CNs5hA05eDu/sbMMK010/Lo+a/9s0tDjey+shhFLRRhq2ic5r8NG8kOSwKJjyPtH8vC67wXVbFvcYOV4oCqGQ="
+
+before_install:
+  - echo -n | openssl s_client -connect https://scan.coverity.com:443 | sed -ne '/-BEGIN CERTIFICATE-/,/-END CERTIFICATE-/p' | sudo tee -a /etc/ssl/certs/ca-
+
+addons:
+  coverity_scan:
+    project:
+      name: "JavaQualitasCorpus/aoi-2.8.1"
+      description: "aoi-2.8.1"
+    notification_email: lujan.savanna@gmail.com
+    build_command_prepend:
+    build_command: ant -buildfile ArtOfIllusion.xml
+    branch_pattern: coverity_scan
