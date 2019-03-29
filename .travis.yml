@@ -15,6 +15,6 @@ addons:
       name: "JavaQualitasCorpus/aoi-2.8.1"
       description: "aoi-2.8.1"
     notification_email: lujan.savanna@gmail.com
-    build_command_prepend:
-    build_command: ant -buildfile ArtOfIllusion.xml
+    build_command_prepend: mvn clean
+    build_command: mvn -DskipTests=true compile
     branch_pattern: master
